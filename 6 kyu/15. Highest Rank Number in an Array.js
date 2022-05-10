@@ -14,7 +14,7 @@ function highestRank(arr){
     console.log(object);
     let theMostFrequentNumber = Object.keys(object)[0];
 
-    for (let number in object) {
+    for (number in object) {
 
         if (object[number] === object[theMostFrequentNumber]) {
             if (number > theMostFrequentNumber) {
