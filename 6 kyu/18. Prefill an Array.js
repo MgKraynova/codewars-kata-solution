@@ -6,22 +6,27 @@
 // if n is anything other than an integer or integer-formatted string (e.g. '123') that is >=0, throw a TypeError
 
 function prefill(n, v) {
-    if (n === 0 || parseFloat(n) === 0) {
-        return [];
-    }
+  if (n === 0 || parseFloat(n) === 0) {
+    return [];
+  }
 
-    if (!Number.isInteger(n) || isNaN(parseFloat(n)) || !Number.isInteger(parseFloat(n)) || (typeof n === "number" && n < 0)) {
-        throw new TypeError(`${n} is invalid`);
-    }
+  if (
+    !Number.isInteger(n) ||
+    isNaN(parseFloat(n)) ||
+    !Number.isInteger(parseFloat(n)) ||
+    (typeof n === 'number' && n < 0)
+  ) {
+    throw new TypeError(`${n} is invalid`);
+  }
 
-    const array = [];
+  const array = [];
 
-    for (let i = 0; i < n; i++) {
-        array.push(v);
-    }
+  for (let i = 0; i < n; i++) {
+    array.push(v);
+  }
 
-    console.log(array);
-    return array;
+  console.log(array);
+  return array;
 }
 
-prefill('0',"abc");
+prefill('0', 'abc');

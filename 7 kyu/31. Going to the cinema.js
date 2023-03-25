@@ -1,19 +1,17 @@
 // https://www.codewars.com/kata/562f91ff6a8b77dfe900006e/train/javascript
 
 function movie(card, ticket, perc) {
+  let counter = 0;
+  let totalCountA = 0;
+  let totalCountB = card;
 
-    let counter = 0;
-    let totalCountA = 0;
-    let totalCountB = card;
+  while (totalCountA <= Math.ceil(totalCountB)) {
+    counter += 1;
+    totalCountB = (ticket * perc * (Math.pow(perc, counter) - 1)) / (perc - 1) + card;
+    totalCountA = ticket * counter;
+  }
 
-    while (totalCountA <= Math.ceil(totalCountB)) {
-        counter += 1;
-        totalCountB = (ticket *perc* (Math.pow(perc, counter) - 1))/ (perc - 1) + card;
-        totalCountA = ticket * counter;
-
-    }
-
-    return counter;
+  return counter;
 }
 movie(500, 15, 0.9); // 43
 movie(100, 10, 0.95); // 24

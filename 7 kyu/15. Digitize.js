@@ -11,9 +11,9 @@
 // 8675309 => [8,6,7,5,3,0,9]
 
 function digitize(n) {
-    return [...(n.toString())].map((item) => {
-        return parseInt(item);
-    })
+  return [...n.toString()].map((item) => {
+    return parseInt(item);
+  });
 }
 
 digitize(8675309);

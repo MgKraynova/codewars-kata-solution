@@ -1,20 +1,20 @@
 // https://www.codewars.com/kata/515f51d438015969f7000013/train/javascript
 
 function pyramid(n) {
-    let array = [];
+  let array = [];
 
-    for (let i = 0; i < n; i++) {
-        let x = [1];
+  for (let i = 0; i < n; i++) {
+    let x = [1];
 
-        for (let y = 0; y < i; y++) {
-            x.push(1);
-        }
-
-        array.push(x);
+    for (let y = 0; y < i; y++) {
+      x.push(1);
     }
 
-    console.log(array);
-    return array;
+    array.push(x);
+  }
+
+  console.log(array);
+  return array;
 }
 
 pyramid(0); // => [ ]

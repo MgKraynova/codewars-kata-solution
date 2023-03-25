@@ -1,6 +1,5 @@
 // https://www.codewars.com/kata/58223370aef9fc03fd000071/train/javascript
 
-
 // Given a variable n,
 //
 //     If n is an integer, Return a string with dash'-'marks before and after each odd integer,
@@ -14,31 +13,29 @@
 // dashatize(6815) -> '68-1-5'
 
 function dashatize(num) {
-    if (typeof num !== 'number' || isNaN(num)) {
-        return 'NaN';
+  if (typeof num !== 'number' || isNaN(num)) {
+    return 'NaN';
+  }
+
+  if (num < 0) {
+    num = Math.abs(num);
+  }
+
+  let arrayOfStringNumbers = num.toString().split('');
+  let finalString = '';
+
+  arrayOfStringNumbers.forEach((string, index) => {
+    if (index === arrayOfStringNumbers.length - 1) {
+      finalString = finalString.concat(string);
+    } else if (parseInt(string) % 2 !== 0 && parseInt(string) !== 0) {
+      finalString = finalString.concat(string.concat('-'));
+    } else if (parseInt(arrayOfStringNumbers[index + 1]) % 2 !== 0 && parseInt(arrayOfStringNumbers[index + 1]) !== 0) {
+      finalString = finalString.concat(string.concat('-'));
+    } else {
+      finalString = finalString.concat(string);
     }
-
-    if (num < 0) {
-        num = Math.abs(num);
-    }
-
-
-    let arrayOfStringNumbers = num.toString().split('');
-    let finalString = '';
-
-    arrayOfStringNumbers.forEach((string, index) => {
-        if (index === arrayOfStringNumbers.length - 1) {
-            finalString = finalString.concat(string);
-        } else if (parseInt(string) % 2 !== 0 && parseInt(string) !== 0) {
-                finalString  = finalString.concat(string.concat('-'));
-        } else if (parseInt(arrayOfStringNumbers[index + 1]) % 2 !== 0 && parseInt(arrayOfStringNumbers[index + 1]) !== 0) {
-            finalString = finalString.concat(string.concat('-'));
-        } else {
-            finalString = finalString.concat(string);
-        }
-    })
-    console.log(finalString);
-
+  });
+  console.log(finalString);
 }
 
 dashatize(974302); // "9-7-4-3-02"

@@ -1,13 +1,13 @@
 // https://www.codewars.com/kata/5324945e2ece5e1f32000370/train/javascript
 
-function sumStrings(a,b) {
-    if (isNaN(parseInt(a))) {
-        return b;
-    } else if (isNaN(parseInt(b))) {
-        return a;
-    } else {
-        return (BigInt(a) + BigInt(b)).toString();
-    }
+function sumStrings(a, b) {
+  if (isNaN(parseInt(a))) {
+    return b;
+  } else if (isNaN(parseInt(b))) {
+    return a;
+  } else {
+    return (BigInt(a) + BigInt(b)).toString();
+  }
 }
 
 //sumStrings('123','456'); //'579'

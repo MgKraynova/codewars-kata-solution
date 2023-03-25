@@ -1,30 +1,29 @@
 // https://www.codewars.com/kata/57b6f5aadb5b3d0ae3000611/train/javascript
 
 function getLengthOfMissingArray(arrayOfArrays) {
+  if (!arrayOfArrays || arrayOfArrays.length === 0) {
+    return 0;
+  }
 
-    if (!arrayOfArrays || arrayOfArrays.length === 0) {
-        return 0;
+  for (let i = 0; i < arrayOfArrays.length; i++) {
+    if (arrayOfArrays[i] === null || arrayOfArrays[i].length === 0) {
+      return 0;
     }
+  }
 
-    for (let i = 0; i < arrayOfArrays.length; i++) {
-        if (arrayOfArrays[i] === null || arrayOfArrays[i].length === 0) {
-            return 0;
-        }
+  arrayOfArrays.sort((prev, current) => {
+    return prev.length - current.length;
+  });
+
+  let result = 0;
+
+  for (let i = 0; i < arrayOfArrays.length - 1; i++) {
+    if (!(arrayOfArrays[i].length + 1 === arrayOfArrays[i + 1].length)) {
+      result = arrayOfArrays[i].length + 1;
+      break;
     }
-
-    arrayOfArrays.sort((prev, current) => {
-        return prev.length - current.length;
-    });
-
-    let result = 0;
-
-    for (let i = 0; i < arrayOfArrays.length - 1; i++) {
-        if (!(arrayOfArrays[i].length + 1 === arrayOfArrays[i + 1].length)) {
-            result = arrayOfArrays[i].length + 1;
-            break;
-        }
-    }
-    return result;
+  }
+  return result;
 }
 
 //getLengthOfMissingArray([[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]);

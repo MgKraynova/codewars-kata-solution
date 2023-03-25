@@ -1,37 +1,39 @@
 // https://www.codewars.com/kata/57ea70aa5500adfe8a000110/train/javascript
 
-
 function foldArray(array, runs) {
+  let arrayForChange = array;
 
-    let arrayForChange = array;
-
-    for (let i = 0; i < runs; i++) {
-        if (arrayForChange.length === 1) {
-            break;
-        } else if (arrayForChange.length % 2 === 0) {
-            const indexOfLastElementOfNewArray = arrayForChange.length / 2 - 1;
-            arrayForChange = arrayForChange.map((item, index) => {
-                if (index > indexOfLastElementOfNewArray) {
-                    return;
-                } else {
-                    return item + arrayForChange[arrayForChange.length - 1 - index];
-                }
-            }).slice(0, indexOfLastElementOfNewArray + 1);
-        } else {
-            const indexOfCentralElementOfArray = Math.floor(arrayForChange.length / 2);
-            arrayForChange = arrayForChange.map((item, index) => {
-                if (index > indexOfCentralElementOfArray) {
-                    return;
-                } else if (index === indexOfCentralElementOfArray) {
-                    return item;
-                } else {
-                    return item + arrayForChange[arrayForChange.length - 1 - index];
-                }
-            }).slice(0, indexOfCentralElementOfArray + 1);
-        }
+  for (let i = 0; i < runs; i++) {
+    if (arrayForChange.length === 1) {
+      break;
+    } else if (arrayForChange.length % 2 === 0) {
+      const indexOfLastElementOfNewArray = arrayForChange.length / 2 - 1;
+      arrayForChange = arrayForChange
+        .map((item, index) => {
+          if (index > indexOfLastElementOfNewArray) {
+            return;
+          } else {
+            return item + arrayForChange[arrayForChange.length - 1 - index];
+          }
+        })
+        .slice(0, indexOfLastElementOfNewArray + 1);
+    } else {
+      const indexOfCentralElementOfArray = Math.floor(arrayForChange.length / 2);
+      arrayForChange = arrayForChange
+        .map((item, index) => {
+          if (index > indexOfCentralElementOfArray) {
+            return;
+          } else if (index === indexOfCentralElementOfArray) {
+            return item;
+          } else {
+            return item + arrayForChange[arrayForChange.length - 1 - index];
+          }
+        })
+        .slice(0, indexOfCentralElementOfArray + 1);
     }
+  }
 
-    return arrayForChange;
+  return arrayForChange;
 }
 
 //foldArray([1,2,3,4,5], 1); // [6,6,3]

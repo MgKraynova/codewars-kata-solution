@@ -9,28 +9,28 @@
 // "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
 
 function solve(s) {
-    const stringWithoutVowels = s.replace(/[aeiou]+/g, ' ');
+  const stringWithoutVowels = s.replace(/[aeiou]+/g, ' ');
 
-    const arrayOfSubstrings = stringWithoutVowels.split(' ');
+  const arrayOfSubstrings = stringWithoutVowels.split(' ');
 
-    let theBiggestValue = 0;
+  let theBiggestValue = 0;
 
-    arrayOfSubstrings.forEach((substring) => {
-        let substringValue = 0;
+  arrayOfSubstrings.forEach((substring) => {
+    let substringValue = 0;
 
-        for (let letter of substring) {
-            substringValue += letter.charCodeAt(0) - 'a'.charCodeAt(0) + 1;
-        }
+    for (let letter of substring) {
+      substringValue += letter.charCodeAt(0) - 'a'.charCodeAt(0) + 1;
+    }
 
-        if (substringValue > theBiggestValue) {
-            theBiggestValue = substringValue;
-        }
-    })
-    console.log(theBiggestValue);
+    if (substringValue > theBiggestValue) {
+      theBiggestValue = substringValue;
+    }
+  });
+  console.log(theBiggestValue);
 
-    return theBiggestValue;
+  return theBiggestValue;
 }
-solve("zodiacs");
+solve('zodiacs');
 solve('twelfthstreet');
 // Test.assertEquals(solve("zodiac"),26);
 // Test.assertEquals(solve("chruschtschov"),80);

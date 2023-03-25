@@ -9,27 +9,26 @@
 // 3 6 9
 // for given example, the return value should be: [[1,2,3],[2,4,6],[3,6,9]]
 
-multiplicationTable = function(size) {
+multiplicationTable = function (size) {
+  let table = [];
 
-    let table = [];
+  for (let i = 0; i < size; i++) {
+    let firstNumberInLine = size - i;
+    //console.log('firstNumberInLine', firstNumberInLine);
+
+    let row = [];
 
     for (let i = 0; i < size; i++) {
-        let firstNumberInLine = size - i;
-        //console.log('firstNumberInLine', firstNumberInLine);
-
-        let row = [];
-
-        for (let i = 0; i < size; i++) {
-            let itemInRow = firstNumberInLine + i * firstNumberInLine;
-            //console.log('itemInRow', itemInRow);
-            row.push(itemInRow);
-        }
-
-        //console.log(row);
-        table.push(row);
+      let itemInRow = firstNumberInLine + i * firstNumberInLine;
+      //console.log('itemInRow', itemInRow);
+      row.push(itemInRow);
     }
-    console.log(table.reverse());
-    return table.reverse();
-}
+
+    //console.log(row);
+    table.push(row);
+  }
+  console.log(table.reverse());
+  return table.reverse();
+};
 
 multiplicationTable(3);

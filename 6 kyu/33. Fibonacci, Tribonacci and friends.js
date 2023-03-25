@@ -1,23 +1,21 @@
 // https://www.codewars.com/kata/556e0fccc392c527f20000c5/train/javascript
 
 function Xbonacci(signature, n) {
-    const resultArr = [...signature];
-    const step = signature.length;
+  const resultArr = [...signature];
+  const step = signature.length;
 
-    if (step >= n) {
-        return signature.slice(signature.length - step, n);
-    }
+  if (step >= n) {
+    return signature.slice(signature.length - step, n);
+  }
 
-    for (let i = 0; i < n - step; i++) {
-        const newElement = resultArr
-            .slice(resultArr.length - step, resultArr.length)
-            .reduce((prev, curr) => {
-                return prev + curr;
-            });
-        resultArr.push(newElement);
-    }
+  for (let i = 0; i < n - step; i++) {
+    const newElement = resultArr.slice(resultArr.length - step, resultArr.length).reduce((prev, curr) => {
+      return prev + curr;
+    });
+    resultArr.push(newElement);
+  }
 
-    return resultArr;
+  return resultArr;
 }
 
 //Xbonacci([1, 2, 3, 4, 5], 4);
@@ -29,4 +27,4 @@ function Xbonacci(signature, n) {
 //Xbonacci([15, 5, 4, 5, 18, 11, 20, 20, 20, 4, 6, 17, 9, 8, 15, 3, 0, 5, 12], 2);
 //Xbonacci([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 0);
 //console.log([])
-Xbonacci([ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ], 9);
+Xbonacci([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], 9);

@@ -1,20 +1,18 @@
 // https://www.codewars.com/kata/622de76d28bf330057cd6af8/train/javascript
 
-function amountOfPages(summary){
+function amountOfPages(summary) {
+  let string = '';
+  let numberOfPages = 0;
 
-    let string = '';
-    let numberOfPages = 0;
+  for (let i = 1; i <= summary; i++) {
+    string = string.concat(i.toString());
 
-    for (let i = 1; i <= summary; i++) {
-
-        string = string.concat(i.toString());
-
-        if (string.length === summary) {
-            numberOfPages = i;
-        }
+    if (string.length === summary) {
+      numberOfPages = i;
     }
+  }
 
-    return numberOfPages;
+  return numberOfPages;
 }
 
 //amountOfPages(5);

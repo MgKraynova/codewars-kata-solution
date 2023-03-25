@@ -1,27 +1,26 @@
 // https://www.codewars.com/kata/5d50e3914861a500121e1958/train/javascript
 
 function addLetters(...letters) {
+  if (letters.length === 0) {
+    return 'z';
+  }
 
-    if (letters.length === 0) {
-        return 'z';
-    }
+  let resultNumber = 0;
+  let resultLetter = '';
 
-    let resultNumber = 0;
-    let resultLetter = '';
+  letters.forEach((item) => {
+    resultNumber += item.charCodeAt(0) - 96;
+  });
 
-    letters.forEach((item) => {
-        resultNumber += item.charCodeAt(0) - 96;
-    })
+  if (resultNumber > 26) {
+    resultNumber % 26 === 0
+      ? (resultLetter = String.fromCharCode(resultNumber - (Math.floor(resultNumber / 26) - 1) * 26 + 96))
+      : (resultLetter = String.fromCharCode(resultNumber - Math.floor(resultNumber / 26) * 26 + 96));
+  } else {
+    resultLetter = String.fromCharCode(resultNumber + 96);
+  }
 
-    if (resultNumber > 26) {
-        resultNumber % 26 === 0
-            ? resultLetter = String.fromCharCode(resultNumber - ((Math.floor(resultNumber / 26) - 1) * 26) + 96)
-            : resultLetter = String.fromCharCode(resultNumber - (Math.floor(resultNumber / 26) * 26) + 96)
-    } else {
-        resultLetter = String.fromCharCode(resultNumber + 96);
-    }
-
-    return resultLetter;
+  return resultLetter;
 }
 
 //addLetters('a', 'b', 'c'); // = 'f'
@@ -33,4 +32,4 @@ addLetters('z'); // = 'z'
 
 //addLetters("p", "m", "d", "n", "i", "u", "x", "d", "x");
 
-addLetters("t", "f", "c", "z", "e", "d", "q", "b", "k", "j"); // z
+addLetters('t', 'f', 'c', 'z', 'e', 'd', 'q', 'b', 'k', 'j'); // z
