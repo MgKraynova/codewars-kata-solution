@@ -24,7 +24,7 @@ const printListRecursion = (list) => {
   }
 };
 
-printListRecursion(list);
+//printListRecursion(list);
 
 const printListCycle = (list) => {
   let objToCheck = list;
@@ -34,4 +34,27 @@ const printListCycle = (list) => {
   }
 };
 
-printListCycle(list);
+//printListCycle(list);
+
+// Выведите односвязный список из предыдущего задания Вывод односвязного списка в обратном порядке.
+// Сделайте два решения: с использованием цикла и через рекурсию.
+
+const printListRecursionReverse = (list) => {
+
+};
+
+printListRecursionReverse(list);
+
+const printListCycleReverse = (list) => {
+  const values = [];
+  let objectToCheck = list;
+
+  while (objectToCheck && 'next' in objectToCheck && 'value' in objectToCheck) {
+    values.push(objectToCheck.value);
+    objectToCheck = objectToCheck.next;
+  }
+
+  values.reverse().forEach(item => console.log(item))
+};
+
+//printListCycleReverse(list)
