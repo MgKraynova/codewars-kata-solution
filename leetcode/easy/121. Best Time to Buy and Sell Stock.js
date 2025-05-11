@@ -32,48 +32,48 @@ var maxProfit = function (prices) {
     return res;
 };
 
-var maxProfitSecondVariant = function (prices) {
-    let res = 0;
-
-
-    const collection = new Map(Object.entries(prices));
-
-    // console.log('collection', collection)
-
-
-    for (let [index, item] of collection) {
-        // const array =
-        //     Array.from(collection).filter((item2, index2) => {
-        //         return item2 > item && index2 > index
-        //     })
-
-        const array = [];
-        for (let [index2, item2] of collection) {
-            if (item2 > item && index2 > index) {
-                array.push(item2);
-            }
-        }
-
-        const max = Math.max(...array);
-        if(max - item > res) {
-            res = max - item;
-        }
-    }
-
-    // collection.forEach((item, index) => {
-    //     console.log('item', item);
-    //     // const array =
-    //     //     collection.filter((item2, index2) => {
-    //     //         return item2 > item && index2 > index
-    //     //     })
-    //     // const max = Math.max(...array);
-    //     // if(max - item > res) {
-    //     //     res = max - item;
-    //     // }
-    // })
-    console.log('b', collection);
-    return res;
-};
+// var maxProfitSecondVariant = function (prices) {
+//     let res = 0;
+//
+//
+//     const collection = new Map(Object.entries(prices));
+//
+//     // console.log('collection', collection)
+//
+//
+//     for (let [index, item] of collection) {
+//         // const array =
+//         //     Array.from(collection).filter((item2, index2) => {
+//         //         return item2 > item && index2 > index
+//         //     })
+//
+//         const array = [];
+//         for (let [index2, item2] of collection) {
+//             if (item2 > item && index2 > index) {
+//                 array.push(item2);
+//             }
+//         }
+//
+//         const max = Math.max(...array);
+//         if(max - item > res) {
+//             res = max - item;
+//         }
+//     }
+//
+//     // collection.forEach((item, index) => {
+//     //     console.log('item', item);
+//     //     // const array =
+//     //     //     collection.filter((item2, index2) => {
+//     //     //         return item2 > item && index2 > index
+//     //     //     })
+//     //     // const max = Math.max(...array);
+//     //     // if(max - item > res) {
+//     //     //     res = max - item;
+//     //     // }
+//     // })
+//     console.log('b', collection);
+//     return res;
+// };
 
 // console.log('expected', 5, 'actual', maxProfit([7, 1, 5, 3, 6, 4]));
 // console.log('expected', 0, 'actual', maxProfit([7, 6, 4, 3, 1]))
